@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.hero {
+    text-align: center;
+    padding: 100px 0;
+    background: #7599F3;
+  }
+  .hero {
+    background: linear-gradient(45deg, #fff,#5868ec, #fff, #5868ec );
+    background-size: 500% 500%;
+    -webkit-animation: ignielGradient 12s ease infinite;
+    -moz-animation: ignielGradient 12s ease infinite;
+    animation: ignielGradient 12s ease infinite;
+}
+@-webkit-keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes rgb-border {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #fff; /* Warna dasar tombol */
+    z-index: 1;
+  }
+  
+  /* Tombol dengan lingkaran RGB */
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff0000, #0000ff, #ff0000);
+    background-size: 400% 400%;
+    z-index: -1;
+    filter: blur(4px); /* Membuat garis tepi lebih lembut */
+    transition: 0.3s;
+    animation: rgb-border 6s ease infinite;
+    border-radius: 7px; /* Perlu sedikit lebih besar dari border-radius tombol */
+  }
+  
+  /* Tombol berwarna dasar */
+  .btn-primary {
+    color: white;
+    background-color: #007bff; /* Warna dasar biru */
+    transition: color 0.3s;
+  }
+  
+  /* Tombol dengan garis luar */
+  .btn-outline-primary {
+    color: #007bff;
+    background-color: transparent;
+    border: 2px solid #007bff;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  
+  .btn:hover::before {
+    filter: blur(0px); /* Hilangkan blur saat hover */
+  }
+  
+  .btn-primary:hover {
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-outline-primary:hover {
+    color: white;
+    border-color: transparent;
+    background-color: #007bff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Opsional: Efek ripple */
+  .btn::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transition: width 0.3s ease, height 0.3s ease, left 0.3s ease, top 0.3s ease;
+    z-index: -1;
+  }
+  
+  .btn:active::after {
+    width: 300%;
+    height: 300%;
+    left: -100%;
+    top: -100%;
+  }
